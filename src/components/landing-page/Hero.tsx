@@ -1,10 +1,10 @@
-import { Overlay, Container, Title, Text } from "@mantine/core";
+import { Overlay, Container, Title } from "@mantine/core";
 
 // Yellow
 import { useStyles } from "../../css/Hero.styles";
-import Form from "../Form";
+import { GetInTouch } from "../Forms";
 
-export function HeroContentLeft() {
+export function Hero() {
   const { classes } = useStyles();
 
   return (
@@ -26,7 +26,7 @@ export function HeroContentLeft() {
             A fully featured React
           </Title>
 
-          <Form />
+          <GetInTouch />
         </div>
       </Container>
     </div>

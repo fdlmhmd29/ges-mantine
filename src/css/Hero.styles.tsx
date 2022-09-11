@@ -17,7 +17,7 @@ export const useStyles = createStyles((theme) => ({
       height: "90vh",
       maxHeight: "850px",
       minHeight: "700px",
-      marginTop: "-100px",
+      marginTop: "-65px",
     },
 
     [theme.fn.largerThan(1439)]: {
