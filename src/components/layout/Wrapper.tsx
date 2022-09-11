@@ -1,4 +1,4 @@
-import { Container, MantineProvider } from "@mantine/core";
+import { MantineProvider, ContainerStylesParams } from "@mantine/core";
 import { ReactNode } from "react";
 import { FooterLinks } from "./Footers";
 import HeaderAction from "./Headers";
@@ -16,12 +16,37 @@ export const Wrapper = ({ children }: Props) => {
         colorScheme: "light",
         components: {
           Container: {
+            styles: (theme, params: ContainerStylesParams) => ({
+              root: {
+                width: "100%",
+                maxWidth: "1280px",
+                marginRight: "auto",
+                marginLeft: "auto",
+                paddingLeft: "24px",
+                paddingRight: "24px",
+
+                [theme.fn.largerThan(767)]: {
+                  paddingLeft: "40px",
+                  paddingRight: "40px",
+                },
+
+                [theme.fn.largerThan(1023)]: {
+                  paddingLeft: "48px",
+                  paddingRight: "48px",
+                },
+
+                [theme.fn.largerThan(1279)]: {
+                  paddingLeft: "64px",
+                  paddingRight: "64px",
+                },
+              },
+            }),
             defaultProps: {
               sizes: {
-                xs: 375,
-                sm: 425,
-                md: 768,
-                lg: 1024,
+                xs: 425,
+                sm: 768,
+                md: 1024,
+                lg: 1280,
                 xl: 1440,
               },
             },

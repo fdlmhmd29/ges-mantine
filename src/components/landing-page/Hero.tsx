@@ -1,73 +1,8 @@
-import {
-  createStyles,
-  Overlay,
-  Container,
-  Title,
-  Button,
-  Text,
-} from "@mantine/core";
+import { Overlay, Container, Title, Text } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
-  hero: {
-    position: "relative",
-    backgroundImage:
-      "url(https://images.unsplash.com/photo-1545055421-0be565419b3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    top: -60,
-  },
-
-  container: {
-    height: 700,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    paddingBottom: theme.spacing.xl * 6,
-    zIndex: 1,
-    position: "relative",
-
-    [theme.fn.smallerThan("sm")]: {
-      height: 500,
-      paddingBottom: theme.spacing.xl * 3,
-    },
-  },
-
-  title: {
-    color: theme.white,
-    fontSize: 60,
-    fontWeight: 900,
-    lineHeight: 1.1,
-
-    [theme.fn.smallerThan("sm")]: {
-      fontSize: 40,
-      lineHeight: 1.2,
-    },
-
-    [theme.fn.smallerThan("xs")]: {
-      fontSize: 28,
-      lineHeight: 1.3,
-    },
-  },
-
-  description: {
-    color: theme.white,
-    maxWidth: 600,
-
-    [theme.fn.smallerThan("sm")]: {
-      maxWidth: "100%",
-      fontSize: theme.fontSizes.sm,
-    },
-  },
-
-  control: {
-    marginTop: theme.spacing.xl * 1.5,
-
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
-    },
-  },
-}));
+// Yellow
+import { useStyles } from "../../css/Hero.styles";
+import Form from "../Form";
 
 export function HeroContentLeft() {
   const { classes } = useStyles();
@@ -79,24 +14,20 @@ export function HeroContentLeft() {
         opacity={2}
         zIndex={0}
       />
-      <Container size={"lg"} className={classes.container}>
-        <Title className={classes.title}>
-          A fully featured React components library
-        </Title>
-        <Text className={classes.description} size="xl" mt="xl">
-          Build fully functional accessible web applications faster than ever –
-          Mantine includes more than 120 customizable components and hooks to
-          cover you in any situation
-        </Text>
+      <Container className={classes.hero_body}>
+        <div className={classes.hero_content}>
+          <Title order={5} className={classes.pretitle}>
+            A fully featured React
+          </Title>
+          <Title order={1} className={classes.title}>
+            A fully featured React React React
+          </Title>
+          <Title order={4} className={classes.description}>
+            A fully featured React
+          </Title>
 
-        <Button
-          variant="gradient"
-          size="xl"
-          radius="xl"
-          className={classes.control}
-        >
-          Get started
-        </Button>
+          <Form />
+        </div>
       </Container>
     </div>
   );
