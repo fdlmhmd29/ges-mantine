@@ -9,7 +9,7 @@ export const useStyles = createStyles((theme) => ({
     transition: "top 0.3s ease-in-out",
     backgroundColor: "transparent",
     marginBottom: "0 !important",
-    zIndex: 2,
+    zIndex: 4,
 
     [theme.fn.smallerThan("sm")]: {
       top: "0",
