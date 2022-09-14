@@ -2,7 +2,7 @@ import { Container, Paper, Text } from "@mantine/core";
 import { useStyles } from "../../css/Stats.styles";
 import { data } from "../../data/StatsData";
 
-export function StatsGroup() {
+export default function Banner() {
   const { classes } = useStyles();
   const stats = data.map((stat) => (
     <div key={stat.title} className={classes.stat}>
@@ -12,10 +12,12 @@ export function StatsGroup() {
     </div>
   ));
   return (
-    <Container>
-      <Paper className={classes.root} shadow={"lg"}>
-        {stats}
-      </Paper>
-    </Container>
+    <section>
+      <Container>
+        <Paper className={classes.root} shadow={"lg"}>
+          {stats}
+        </Paper>
+      </Container>
+    </section>
   );
 }

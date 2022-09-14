@@ -5,7 +5,7 @@ export default function Description() {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.text}>
+    <section className={classes.text}>
       <Container>
         <div className={classes.text_body}>
           <h3 className={classes.text_title}>
@@ -25,6 +25,6 @@ export default function Description() {
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   );
 }

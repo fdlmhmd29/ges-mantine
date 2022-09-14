@@ -35,12 +35,12 @@ function Feature({
   );
 }
 
-export function Customer() {
+export default function Customer() {
   const { classes } = useStyles();
   const items = mockdata.map((item) => <Feature {...item} key={item.title} />);
 
   return (
-    <div className={classes.main}>
+    <section className={classes.main}>
       <Container size="lg">
         <div className={classes.body}>
           <h3 className={classes.text_title}>Pelanggan kami</h3>
@@ -62,6 +62,6 @@ export function Customer() {
           {items}
         </SimpleGrid>
       </Container>
-    </div>
+    </section>
   );
 }

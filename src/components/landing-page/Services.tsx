@@ -1,10 +1,4 @@
-import {
-  Text,
-  Container,
-  SimpleGrid,
-  useMantineTheme,
-  Spoiler,
-} from "@mantine/core";
+import { Text, Container, SimpleGrid, Spoiler } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {
   IconGauge,
@@ -13,7 +7,6 @@ import {
   IconMessage2,
   IconLock,
   TablerIcon,
-  IconHelp,
 } from "@tabler/icons";
 import { useStyles } from "../../css/Cust-Feat.styles";
 
@@ -87,7 +80,6 @@ function Feature({
   className,
   ...others
 }: FeatureProps) {
-  const theme = useMantineTheme();
   const { classes, cx } = useStyles();
 
   return (
@@ -107,21 +99,23 @@ function Feature({
   );
 }
 
-interface FeaturesGridProps {
+interface ServicesGridProps {
   data?: FeatureProps[];
 }
 
-export function Features({ data = MOCKDATA }: FeaturesGridProps) {
+export default function Services({ data = MOCKDATA }: ServicesGridProps) {
   const { classes } = useStyles();
   const mobile = useMediaQuery("(max-width: 425px)");
-  const maxH = mobile ? 580 : 900;
+  const tab = useMediaQuery("(min-width: 640px)");
+  const desktop = useMediaQuery("(min-width: 1024px)");
+  const height = desktop ? 900 : tab ? 458 : mobile ? 580 : 250;
 
-  const features = data.map((feature, index) => (
+  const services = data.map((feature, index) => (
     <Feature {...feature} key={index} />
   ));
 
   return (
-    <div className={classes.main}>
+    <section className={classes.main}>
       <Container mb={30} size="lg">
         <div className={classes.body}>
           <h3 className={classes.text_title}>Jasa layanan kami</h3>
@@ -133,7 +127,7 @@ export function Features({ data = MOCKDATA }: FeaturesGridProps) {
           </p>
         </div>
         <Spoiler
-          maxHeight={maxH}
+          maxHeight={height}
           showLabel="Lihat lebih banyak layanan"
           hideLabel="Sembunyikan"
           transitionDuration={1000}
@@ -156,10 +150,10 @@ export function Features({ data = MOCKDATA }: FeaturesGridProps) {
               { maxWidth: 425, cols: 1, spacing: "xl" },
             ]}
           >
-            {features}
+            {services}
           </SimpleGrid>
         </Spoiler>
       </Container>
-    </div>
+    </section>
   );
 }

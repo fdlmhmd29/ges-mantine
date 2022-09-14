@@ -4,11 +4,11 @@ import { Overlay, Container, Title } from "@mantine/core";
 import { useStyles } from "../../css/Hero.styles";
 import { GetInTouch } from "../Forms";
 
-export function Hero() {
+export default function Hero() {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.hero}>
+    <section className={classes.hero}>
       <Overlay
         gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
         opacity={2}
@@ -29,6 +29,6 @@ export function Hero() {
           <GetInTouch />
         </div>
       </Container>
-    </div>
+    </section>
   );
 }

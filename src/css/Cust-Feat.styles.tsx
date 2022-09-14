@@ -11,6 +11,21 @@ export const useStyles = createStyles((theme) => ({
     },
   },
 
+  tabRoot: {},
+
+  tabList: {
+    padding: "1rem",
+    borderRadius: "4px",
+    border: "0.0625rem solid #e7eaf3",
+    overflowX: "auto",
+    maxWidth: "100%",
+    [theme.fn.largerThan(1023)]: {},
+  },
+
+  tabPanel: {
+    [theme.fn.largerThan(1023)]: {},
+  },
+
   body: {
     maxWidth: "66.66667%",
 

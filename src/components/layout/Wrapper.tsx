@@ -1,8 +1,4 @@
-import {
-  MantineProvider,
-  ContainerStylesParams,
-  PaperStylesParams,
-} from "@mantine/core";
+import { MantineProvider, ContainerStylesParams } from "@mantine/core";
 import { ReactNode } from "react";
 import { FooterLinks } from "./Footers";
 import HeaderAction from "./Headers";
@@ -64,7 +60,7 @@ export const Wrapper = ({ children }: Props) => {
       }}
     >
       <HeaderAction />
-      {children}
+      <main>{children}</main>
       <FooterLinks />
     </MantineProvider>
   );
