@@ -43,7 +43,7 @@ export default function Customer() {
     <section className={classes.main}>
       <Container size="lg">
         <div className={classes.body}>
-          <h3 className={classes.text_title}>Pelanggan kami</h3>
+          <h3 className={classes.text_title}>Pelanggan</h3>
           <p className={classes.text_description}>
             We are a fully-fledged nutritional supplier producing compound feed,
             premixes, concentrates and feed specialties for our customers

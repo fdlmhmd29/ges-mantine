@@ -29,7 +29,7 @@ export default function Portfolio() {
 
   return (
     <Section className={classes.portfolio}>
-      <SectionHeader title="Portfolio kami" description="Contoh deskripsi" />
+      <SectionHeader title="Portfolio" description="Contoh deskripsi" />
       <Tab />
     </Section>
   );

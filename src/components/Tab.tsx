@@ -1,6 +1,27 @@
-import { Tabs } from "@mantine/core";
-import { tabsFooterData, tabsHeaderData } from "../data/TabsData";
+import { createStyles, Tabs } from "@mantine/core";
 import { TablerIcon } from "@tabler/icons";
+
+// Yellow
+import { tabsFooterData, tabsHeaderData } from "../data/TabsData";
+
+const useStyles = createStyles((theme) => ({
+  tabsList: {
+    display: "flex",
+    maxWidth: "100%",
+    overflowX: "auto",
+    whiteSpace: "nowrap",
+    marginTop: "1.5rem",
+    marginBottom: "1.5rem",
+    borderRadius: "4px",
+  },
+
+  tabsPanel: {
+    display: "flex",
+    flexFlow: "row nowrap",
+    gap: "10px",
+    overflow: "auto",
+  },
+}));
 
 // Tab Header
 export interface TabsHeaderProps extends React.ComponentPropsWithoutRef<"div"> {
@@ -25,7 +46,7 @@ function TabsHeader({ icon: Icon, value, label, size }: TabsHeaderProps) {
 export interface TabsFooterProps {
   value: string;
   pt: string;
-  content: string;
+  content: React.ReactNode;
 }
 
 function TabsFooter({ value, pt, content }: TabsFooterProps) {
@@ -47,6 +68,8 @@ export default function Tab({
   tabsHeader = tabsHeaderData,
   tabsFooter = tabsFooterData,
 }: PortfolioProps) {
+  const { classes } = useStyles();
+
   const header = tabsHeader.map((item, index) => (
     <TabsHeader key={index} {...item} />
   ));
@@ -55,7 +78,11 @@ export default function Tab({
   ));
 
   return (
-    <Tabs variant="pills" defaultValue="gallery">
+    <Tabs
+      classNames={{ panel: classes.tabsPanel, tabsList: classes.tabsList }}
+      variant="pills"
+      defaultValue="gallery"
+    >
       <Tabs.List>{header}</Tabs.List>
       {footer}
     </Tabs>

@@ -25,7 +25,7 @@ const Services = dynamic(() => import("./Services"), {
 
 export default function LandingPage() {
   return (
-    <Suspense>
+    <Suspense fallback={<Preloader />}>
       <Hero />
       <Banner />
       <Description />

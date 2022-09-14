@@ -46,7 +46,14 @@ export function ArticleCardFooter() {
   const { classes, theme } = useStyles();
 
   const articles = data.map((item, index) => (
-    <Card key={index} withBorder p="lg" radius="md" className={classes.card}>
+    <Card
+      shadow={"lg"}
+      key={index}
+      withBorder
+      p="lg"
+      radius="md"
+      className={classes.card}
+    >
       <Card.Section mb="sm">
         <Image src={item.image} alt={item.title} height={180} />
       </Card.Section>

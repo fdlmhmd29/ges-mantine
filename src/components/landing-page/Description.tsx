@@ -17,7 +17,7 @@ export default function Description() {
               specialists are 'hands on' and enjoy working closely with farmers,
               providing key insights into the relationship between feed and how
               the animals are kept, advising about nutritional strategies that
-              meet the animals’ physiological needs and supporting farm
+              meet the animals&lsquo; physiological needs and supporting farm
               management. Focusing on one goal: keeping animals healthy and
               enabling optimal production. That is what we call Powering
               Progress!

@@ -1,71 +1,9 @@
 import { Text, Container, SimpleGrid, Spoiler } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-import {
-  IconGauge,
-  IconCookie,
-  IconUser,
-  IconMessage2,
-  IconLock,
-  TablerIcon,
-} from "@tabler/icons";
+import { useSetState } from "@mantine/hooks";
+import { TablerIcon } from "@tabler/icons";
+import React, { useEffect } from "react";
 import { useStyles } from "../../css/Cust-Feat.styles";
-
-export const MOCKDATA = [
-  {
-    icon: IconGauge,
-    title: "Extreme performance",
-    description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
-  },
-  {
-    icon: IconUser,
-    title: "Privacy focused",
-    description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
-  },
-  {
-    icon: IconCookie,
-    title: "No third parties",
-    description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-  },
-  {
-    icon: IconLock,
-    title: "Secure by default",
-    description:
-      "Although it still can’t fly, its jumping power is outstanding, in Alola the mushrooms on Paras don’t grow up quite right",
-  },
-  {
-    icon: IconMessage2,
-    title: "24/7 Support",
-    description:
-      "Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail",
-  },
-  {
-    icon: IconMessage2,
-    title: "24/7 Support",
-    description:
-      "Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail",
-  },
-  {
-    icon: IconMessage2,
-    title: "24/7 Support",
-    description:
-      "Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail",
-  },
-  {
-    icon: IconMessage2,
-    title: "24/7 Support",
-    description:
-      "Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail",
-  },
-  {
-    icon: IconMessage2,
-    title: "24/7 Support",
-    description:
-      "Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail",
-  },
-];
+import { MOCKDATA } from "../../data/ServicesData";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
   icon: TablerIcon;
@@ -103,12 +41,29 @@ interface ServicesGridProps {
   data?: FeatureProps[];
 }
 
+interface ScreenWidthProps {
+  width?: number;
+}
+function useWidthSize({ width }: ScreenWidthProps) {
+  const [widthSize, setWidthSize] = useSetState<ScreenWidthProps>({
+    width: undefined,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWidthSize({ width: window.innerWidth });
+    }
+
+    handleResize();
+  });
+
+  return widthSize;
+}
+
 export default function Services({ data = MOCKDATA }: ServicesGridProps) {
   const { classes } = useStyles();
-  const mobile = useMediaQuery("(max-width: 425px)");
-  const tab = useMediaQuery("(min-width: 640px)");
-  const desktop = useMediaQuery("(min-width: 1024px)");
-  const height = desktop ? 900 : tab ? 458 : mobile ? 580 : 250;
+  const { width } = useWidthSize({ width: undefined });
+  const height = width && width < 421 ? width * 1.82 : 1000;
 
   const services = data.map((feature, index) => (
     <Feature {...feature} key={index} />
@@ -118,7 +73,7 @@ export default function Services({ data = MOCKDATA }: ServicesGridProps) {
     <section className={classes.main}>
       <Container mb={30} size="lg">
         <div className={classes.body}>
-          <h3 className={classes.text_title}>Jasa layanan kami</h3>
+          <h3 className={classes.text_title}>Jasa layanan</h3>
 
           <p className={classes.text_description}>
             We are a fully-fledged nutritional supplier producing compound feed,

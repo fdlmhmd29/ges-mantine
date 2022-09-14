@@ -1,4 +1,5 @@
 import { IconChartLine, IconMessageCircle, IconSettings } from "@tabler/icons";
+import { ArticleCardFooter } from "../components/Card";
 
 const tabsHeaderData = [
   {
@@ -19,13 +20,25 @@ const tabsHeaderData = [
     label: "Settings",
     size: 14,
   },
+  {
+    icon: IconSettings,
+    value: "settings",
+    label: "Settings",
+    size: 14,
+  },
+  {
+    icon: IconSettings,
+    value: "settings",
+    label: "Settings",
+    size: 14,
+  },
 ];
 
 const tabsFooterData = [
   {
     value: "gallery",
     pt: "xs",
-    content: "Gallery",
+    content: <ArticleCardFooter />,
   },
   {
     value: "messages",
