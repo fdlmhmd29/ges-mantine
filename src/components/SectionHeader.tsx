@@ -1,16 +1,16 @@
 import { createStyles } from "@mantine/core";
 
-const useStyle = createStyles((theme) => ({
+const useStyles = createStyles((theme) => ({
   header_body: {
-    maxWidth: "66.66667%",
+    maxWidth: "100%",
 
-    [theme.fn.smallerThan(375)]: {
-      maxWidth: "100%",
+    [theme.fn.largerThan(1023)]: {
+      maxWidth: "83.33333%",
     },
   },
 
   header_title: {
-    marginBottom: "1.5rem",
+    marginTop: 0,
     fontSize: 24,
     lineHeight: 1.5,
     fontWeight: 600,
@@ -38,7 +38,7 @@ const useStyle = createStyles((theme) => ({
   },
 }));
 
-interface SectionHeaderProps {
+interface SectionHeaderProps extends React.ComponentPropsWithoutRef<"div"> {
   title: string;
   description: string;
 }
@@ -46,11 +46,13 @@ interface SectionHeaderProps {
 export default function SectionHeader({
   title,
   description,
+  className,
+  ...others
 }: SectionHeaderProps) {
-  const { classes } = useStyle();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classes.header_body}>
+    <div className={cx(classes.header_body, className)} {...others}>
       <h3 className={classes.header_title}>{title}</h3>
       <p className={classes.header_description}>{description}</p>
     </div>

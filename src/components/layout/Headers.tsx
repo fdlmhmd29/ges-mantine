@@ -79,6 +79,7 @@ export function HeaderAction() {
             onClick={toggle}
             className={classes.burger}
             size="sm"
+            aria-label="burger-button"
           />
           <Title order={1} className={classes.logo}>
             Logo

@@ -9,3 +9,45 @@ h6 {
   font-style: normal !important;
   letter-spacing: 0.5px;
 }
+
+.service {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em 1em;
+  grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "service_one service_three quick_links"
+    "service_two service_more quick_links";
+}
+
+.service_one,
+.service_two,
+.service_three,
+.service_more {
+  width: 350px;
+}
+
+.service_one {
+  grid-area: service_one;
+}
+
+.service_two {
+  grid-area: service_two;
+}
+
+.service_three {
+  grid-area: service_three;
+}
+
+.service_more {
+  grid-area: service_more;
+}
+
+.quick_links {
+  grid-area: quick_links;
+}

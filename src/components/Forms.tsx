@@ -9,6 +9,7 @@ import {
   Modal,
   Input,
   useMantineTheme,
+  Autocomplete,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useId } from "@mantine/hooks";
@@ -18,7 +19,6 @@ import {
   IconBrandWhatsapp,
   IconBuildingCommunity,
   IconMessage2,
-  IconMessageCircle,
   IconUser,
 } from "@tabler/icons";
 import { useState } from "react";
@@ -32,6 +32,11 @@ export function GetInTouch() {
   const id = useId();
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
+  const [value, setValue] = useState("");
+  const data =
+    value.trim().length > 0 && !value.includes("@")
+      ? ["gmail.co.id", "gmail.com"].map((provider) => `${value}@${provider}`)
+      : [];
 
   const form = useForm({
     initialValues: {
@@ -149,12 +154,13 @@ export function GetInTouch() {
                       placeholder="+62 812-3456-7890"
                     />
                   </Input.Wrapper>
-                  <TextInput
-                    type={"email"}
-                    label="E-mail"
-                    placeholder="budi@bumi.com"
+                  <Autocomplete
+                    value={value}
+                    onChange={setValue}
+                    label={"Email"}
+                    placeholder="budirawan@gmail.co.id"
+                    data={data}
                     icon={<IconAt />}
-                    {...form.getInputProps("email")}
                   />
                 </SimpleGrid>
                 <TextInput
@@ -200,7 +206,7 @@ export function GetInTouch() {
         >
           Hubungi kami
         </Buttons>
-        <Buttons variant="white">Lihat layanan kami</Buttons>
+        <Buttons variant="white">Lihat semua layanan kami</Buttons>
       </Group>
     </>
   );

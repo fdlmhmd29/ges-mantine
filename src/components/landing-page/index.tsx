@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
+import BannerNew from "../Banner";
 
 // Yellow
 import Preloader from "../Preloader";
@@ -16,10 +17,18 @@ const Description = dynamic(() => import("./Description"), {
 const Customers = dynamic(() => import("./Customer"), {
   suspense: true,
 });
-const Portfolio = dynamic(() => import("./Portfolio"), {
+// const Portfolio = dynamic(() => import("./Portfolio"), {
+//   suspense: true,
+// });
+const Porto = dynamic(() => import("./Porto"), {
   suspense: true,
 });
-const Services = dynamic(() => import("./Services"), {
+
+const Highlight = dynamic(() => import("./Highlight"), {
+  suspense: true,
+});
+
+const Contact = dynamic(() => import("./Contact"), {
   suspense: true,
 });
 
@@ -31,8 +40,13 @@ export default function LandingPage() {
       <Description />
       <SectionDivider />
       <Customers />
-      <Portfolio />
-      <Services />
+      <Highlight />
+      <SectionDivider />
+      <Contact />
+      <Porto />
+      {/* <BannerNew /> */}
+      {/* <Portfolio /> */}
+      {/* <Services /> */}
     </Suspense>
   );
 }

@@ -1,4 +1,5 @@
 import { createStyles, Tabs } from "@mantine/core";
+import { Carousel } from "@mantine/carousel";
 import { TablerIcon } from "@tabler/icons";
 
 // Yellow
@@ -17,9 +18,9 @@ const useStyles = createStyles((theme) => ({
 
   tabsPanel: {
     display: "flex",
-    flexFlow: "row nowrap",
-    gap: "10px",
-    overflow: "auto",
+    maxWidth: "100%",
+    overflowX: "auto",
+    whiteSpace: "nowrap",
   },
 }));
 
@@ -46,13 +47,13 @@ function TabsHeader({ icon: Icon, value, label, size }: TabsHeaderProps) {
 export interface TabsFooterProps {
   value: string;
   pt: string;
-  content: React.ReactNode;
+  children: React.ReactNode;
 }
 
-function TabsFooter({ value, pt, content }: TabsFooterProps) {
+function TabsFooter({ value, pt, children }: TabsFooterProps) {
   return (
     <Tabs.Panel value={value} pt={pt}>
-      {content}
+      {children}
     </Tabs.Panel>
   );
 }
@@ -73,6 +74,7 @@ export default function Tab({
   const header = tabsHeader.map((item, index) => (
     <TabsHeader key={index} {...item} />
   ));
+
   const footer = tabsFooter.map((item, index) => (
     <TabsFooter key={index} {...item} />
   ));

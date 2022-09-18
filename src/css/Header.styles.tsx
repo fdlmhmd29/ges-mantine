@@ -19,6 +19,7 @@ export const useStyles = createStyles((theme) => ({
   sticky: {
     position: "sticky",
     top: 0,
+    boxShadow: "0px 5px 17px 0px rgba(0,0,0,0.1)",
     backgroundColor:
       theme.colorScheme === "dark"
         ? theme.colors.dark[8]

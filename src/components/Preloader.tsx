@@ -16,7 +16,7 @@ export default function Preloader() {
 
   return (
     <div className={classes.preloader}>
-      <Loader size="xl" variant={"bars"} />
+      <Loader size="xl" color={"blue"} />
     </div>
   );
 }

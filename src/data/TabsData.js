@@ -20,35 +20,23 @@ const tabsHeaderData = [
     label: "Settings",
     size: 14,
   },
-  {
-    icon: IconSettings,
-    value: "settings",
-    label: "Settings",
-    size: 14,
-  },
-  {
-    icon: IconSettings,
-    value: "settings",
-    label: "Settings",
-    size: 14,
-  },
 ];
 
 const tabsFooterData = [
   {
     value: "gallery",
     pt: "xs",
-    content: <ArticleCardFooter />,
+    children: <ArticleCardFooter />,
   },
   {
     value: "messages",
     pt: "xs",
-    content: "Messages",
+    children: <ArticleCardFooter />,
   },
   {
     value: "settings",
     pt: "xs",
-    content: "Settings",
+    children: "Settings",
   },
 ];
 

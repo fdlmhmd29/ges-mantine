@@ -1,19 +1,23 @@
 export const data = [
   {
-    title: "Project selesai",
-    stats: "109++",
+    title: "Kajian Analisis Mengenai Dampak Lingkungan Hidup",
+    stats: "AMDAL",
     description:
-      "24% more than in the same month last year, 33% more that two years ago",
+      "Kajian mengenai dampak penting suatu Usaha dan/atau Kegiatan yang direncanakan pada lingkungan hidup yang perlukan bagi proses pengambilan keputusan tentang penyelenggara Usaha dan/atau Kegiatan.",
+    link: "/",
   },
   {
-    title: "Jasa layanan",
-    stats: "9",
+    title: "Rencana Pengelolaan dan Pemantauan Lingkungan Hidup",
+    stats: "RKL-RPL",
     description:
-      "13% less compared to last month, new user engagement up by 6%",
+      "Rencana tindak lanjut untuk mengelola dampak penting yang ditimbulkan oleh aktivitas proyek dan piranti untuk memantau hasil pengelolaan lingkungan tersebut.",
+    link: "/",
   },
   {
-    title: "Jangkauan project",
-    stats: "3",
-    description: "1994 orders were completed this month, 97% satisfaction rate",
+    title: "Persetujuan Teknis dari Pemerintah atau Pemerintah Daerah",
+    stats: "PERTEK",
+    description:
+      "Ketentuan mengenai Standar Perlindungan dan Pengelolaan Lingkungan Hidup dan/atau Analisis Mengenai Dampak Lalu Lintas usaha dan/atau kegiatan sesuai peraturan perundang-undangan.",
+    link: "/persetujuan-teknis",
   },
 ];

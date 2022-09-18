@@ -3,6 +3,7 @@ import { createStyles } from "@mantine/core";
 export const useStyles = createStyles((theme) => ({
   root: {
     display: "flex",
+    flexDirection: "row",
     backgroundImage: `linear-gradient(-60deg, ${
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][7]} 100%)`,
@@ -43,6 +44,25 @@ export const useStyles = createStyles((theme) => ({
     color: theme.colors[theme.primaryColor][0],
     fontSize: theme.fontSizes.sm,
     marginTop: 5,
+    marginBottom: theme.spacing.sm,
+  },
+
+  more: {
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    columnGap: "5px",
+    transition: "all 0.2s ease",
+
+    "&:hover": {
+      columnGap: "10px",
+      color: "#e5e5e5",
+    },
+
+    "& svg": {
+      position: "relative",
+      top: 2,
+    },
   },
 
   stat: {

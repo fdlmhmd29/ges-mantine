@@ -1,7 +1,14 @@
-import { MantineProvider, ContainerStylesParams } from "@mantine/core";
+import {
+  MantineProvider,
+  ContainerStylesParams,
+  createEmotionCache,
+} from "@mantine/core";
 import { ReactNode } from "react";
+import ScrollToTop from "../ScrollToTop";
 import { FooterLinks } from "./Footers";
 import HeaderAction from "./Headers";
+
+const customPrefix = createEmotionCache({ key: "ges" });
 
 interface Props {
   children?: ReactNode;
@@ -12,6 +19,7 @@ export const Wrapper = ({ children }: Props) => {
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
+      emotionCache={customPrefix}
       theme={{
         colorScheme: "light",
         components: {
@@ -60,7 +68,10 @@ export const Wrapper = ({ children }: Props) => {
       }}
     >
       <HeaderAction />
-      <main>{children}</main>
+      <main>
+        {children}
+        <ScrollToTop />
+      </main>
       <FooterLinks />
     </MantineProvider>
   );

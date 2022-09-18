@@ -2,6 +2,8 @@ import { Text, SimpleGrid, Container } from "@mantine/core";
 import { TablerIcon } from "@tabler/icons";
 import { useStyles } from "../../css/Cust-Feat.styles";
 import { mockdata } from "../../data/CustomerData";
+import Section from "../Section";
+import SectionHeader from "../SectionHeader";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
   icon: TablerIcon;
@@ -40,28 +42,23 @@ export default function Customer() {
   const items = mockdata.map((item) => <Feature {...item} key={item.title} />);
 
   return (
-    <section className={classes.main}>
-      <Container size="lg">
-        <div className={classes.body}>
-          <h3 className={classes.text_title}>Pelanggan</h3>
-          <p className={classes.text_description}>
-            We are a fully-fledged nutritional supplier producing compound feed,
-            premixes, concentrates and feed specialties for our customers
-            worldwide.
-          </p>
-        </div>
-        <SimpleGrid
-          cols={3}
-          spacing={50}
-          breakpoints={[
-            { maxWidth: 768, cols: 3, spacing: "xl" },
-            { maxWidth: 640, cols: 2, spacing: "xl" },
-            { maxWidth: 425, cols: 1, spacing: "xl" },
-          ]}
-        >
-          {items}
-        </SimpleGrid>
-      </Container>
-    </section>
+    <Section id={"customer"}>
+      <SectionHeader
+        title="Pelanggan"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin efficitur congue erat, sit amet tempus lorem rutrum at. Vivamus mi nisl, congue non lacinia sed, suscipit in sem."
+      />
+
+      <SimpleGrid
+        cols={3}
+        spacing={50}
+        breakpoints={[
+          { maxWidth: 768, cols: 3, spacing: "xl" },
+          { maxWidth: 640, cols: 2, spacing: "xl" },
+          { maxWidth: 425, cols: 1, spacing: "xl" },
+        ]}
+      >
+        {items}
+      </SimpleGrid>
+    </Section>
   );
 }

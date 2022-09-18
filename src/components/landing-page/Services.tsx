@@ -1,9 +1,12 @@
 import { Text, Container, SimpleGrid, Spoiler } from "@mantine/core";
-import { useSetState } from "@mantine/hooks";
 import { TablerIcon } from "@tabler/icons";
-import React, { useEffect } from "react";
+
+// Yellow
 import { useStyles } from "../../css/Cust-Feat.styles";
 import { MOCKDATA } from "../../data/ServicesData";
+import useWidthSize from "../../lib/GetScreenSizes";
+import Section from "../Section";
+import SectionHeader from "../SectionHeader";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
   icon: TablerIcon;
@@ -41,27 +44,7 @@ interface ServicesGridProps {
   data?: FeatureProps[];
 }
 
-interface ScreenWidthProps {
-  width?: number;
-}
-function useWidthSize({ width }: ScreenWidthProps) {
-  const [widthSize, setWidthSize] = useSetState<ScreenWidthProps>({
-    width: undefined,
-  });
-
-  useEffect(() => {
-    function handleResize() {
-      setWidthSize({ width: window.innerWidth });
-    }
-
-    handleResize();
-  });
-
-  return widthSize;
-}
-
 export default function Services({ data = MOCKDATA }: ServicesGridProps) {
-  const { classes } = useStyles();
   const { width } = useWidthSize({ width: undefined });
   const height = width && width < 421 ? width * 1.82 : 1000;
 
@@ -70,45 +53,40 @@ export default function Services({ data = MOCKDATA }: ServicesGridProps) {
   ));
 
   return (
-    <section className={classes.main}>
-      <Container mb={30} size="lg">
-        <div className={classes.body}>
-          <h3 className={classes.text_title}>Jasa layanan</h3>
-
-          <p className={classes.text_description}>
-            We are a fully-fledged nutritional supplier producing compound feed,
-            premixes, concentrates and feed specialties for our customers
-            worldwide.
-          </p>
-        </div>
-        <Spoiler
-          maxHeight={height}
-          showLabel="Lihat lebih banyak layanan"
-          hideLabel="Sembunyikan"
-          transitionDuration={1000}
-          styles={{
-            control: {
-              marginTop: "2.5rem",
-            },
-            root: {
-              display: "flex",
-              flexDirection: "column",
-            },
-          }}
+    <Section id={"services"}>
+      <SectionHeader
+        title={"Layanan"}
+        description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin efficitur congue erat, sit amet tempus lorem rutrum at. Vivamus mi nisl, congue non lacinia sed, suscipit in sem."
+        }
+      />
+      <Spoiler
+        maxHeight={height}
+        showLabel="Lihat lebih banyak layanan"
+        hideLabel="Sembunyikan"
+        transitionDuration={1000}
+        styles={{
+          control: {
+            marginTop: "2.5rem",
+          },
+          root: {
+            display: "flex",
+            flexDirection: "column",
+          },
+        }}
+      >
+        <SimpleGrid
+          cols={3}
+          spacing={50}
+          breakpoints={[
+            { maxWidth: 768, cols: 3, spacing: "xl" },
+            { maxWidth: 640, cols: 2, spacing: "xl" },
+            { maxWidth: 425, cols: 1, spacing: "xl" },
+          ]}
         >
-          <SimpleGrid
-            cols={3}
-            spacing={50}
-            breakpoints={[
-              { maxWidth: 768, cols: 3, spacing: "xl" },
-              { maxWidth: 640, cols: 2, spacing: "xl" },
-              { maxWidth: 425, cols: 1, spacing: "xl" },
-            ]}
-          >
-            {services}
-          </SimpleGrid>
-        </Spoiler>
-      </Container>
-    </section>
+          {services}
+        </SimpleGrid>
+      </Spoiler>
+    </Section>
   );
 }

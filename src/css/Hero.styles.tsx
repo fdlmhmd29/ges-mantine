@@ -9,7 +9,7 @@ export const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     color: theme.white,
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1545055421-0be565419b3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)",
+      "url(https://ik.imagekit.io/lgntlo62o6w/foto_12._KPublik_di_Kel._Sunter_Agung_2P9Xz1PF4B.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1663399139174)",
     backgroundSize: "cover",
     backgroundPosition: "center",
 

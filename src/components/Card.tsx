@@ -1,15 +1,14 @@
 import {
   createStyles,
   Card,
-  Image,
   ActionIcon,
   Group,
   Text,
   Avatar,
   Badge,
 } from "@mantine/core";
+import Image from "next/image";
 import { IconHeart, IconBookmark, IconShare } from "@tabler/icons";
-import { data } from "../data/CardData";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -42,34 +41,42 @@ interface ArticleCardFooterProps {
   };
 }
 
-export function ArticleCardFooter() {
+export function ArticleCardFooter({
+  image,
+  category,
+  title,
+  footer,
+  author,
+}: ArticleCardFooterProps) {
   const { classes, theme } = useStyles();
 
-  const articles = data.map((item, index) => (
-    <Card
-      shadow={"lg"}
-      key={index}
-      withBorder
-      p="lg"
-      radius="md"
-      className={classes.card}
-    >
+  return (
+    <Card shadow={"lg"} withBorder p="lg" radius="md" className={classes.card}>
       <Card.Section mb="sm">
-        <Image src={item.image} alt={item.title} height={180} />
+        <Image
+          src={image}
+          alt={title}
+          height={250}
+          width={250}
+          placeholder={"blur"}
+          blurDataURL={
+            "https://dummyimage.com/350x350/fff/000.png&text=Loading+image..."
+          }
+        />
       </Card.Section>
 
-      <Badge>{item.category}</Badge>
+      <Badge>{category}</Badge>
 
       <Text weight={700} className={classes.title} mt="xs">
-        {item.title}
+        {title}
       </Text>
 
       <Group mt="lg">
-        <Avatar src={item.author.image} radius="sm" />
+        <Avatar src={author.image} radius="sm" />
         <div>
-          <Text weight={500}>{item.author.name}</Text>
+          <Text weight={500}>{author.name}</Text>
           <Text size="xs" color="dimmed">
-            {item.author.description}
+            {author.description}
           </Text>
         </div>
       </Group>
@@ -77,7 +84,7 @@ export function ArticleCardFooter() {
       <Card.Section className={classes.footer}>
         <Group position="apart">
           <Text size="xs" color="dimmed">
-            {item.footer}
+            {footer}
           </Text>
           <Group spacing={0}>
             <ActionIcon>
@@ -97,6 +104,5 @@ export function ArticleCardFooter() {
         </Group>
       </Card.Section>
     </Card>
-  ));
-  return <>{articles}</>;
+  );
 }

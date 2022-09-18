@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import useWidthSize from "../lib/GetScreenSizes";
 
 interface ButtonsProps {
   leftIcon?: React.ReactNode;
   children: React.ReactNode;
   variant: string;
   onClick?: () => void;
+  component?: string;
+  types?: string;
+  textColor?: string;
 }
 
 export function Buttons({
@@ -14,16 +17,25 @@ export function Buttons({
   variant,
   onClick,
   children,
+  component,
+  types,
+  textColor,
 }: ButtonsProps) {
-  const screens = useMediaQuery("(max-width: 768px)");
+  const { width } = useWidthSize({ width: undefined });
+  const screens = width && width < 768 ? "md" : "lg";
+  const ref = useRef<HTMLButtonElement>(null);
 
   return (
     <Button
-      size={screens ? "md" : "lg"}
+      ref={ref}
+      size={screens}
       radius="sm"
       leftIcon={leftIcon}
       variant={variant as any}
       onClick={onClick}
+      component={component as any}
+      type={types as any}
+      color={textColor}
     >
       {children}
     </Button>
